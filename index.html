@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marcelo  | Designer Gráfico & Desenvolvedor Web</title>
+  <meta name="description" content="Portfólio de  Marcelo Gomes António  - Especialista em Design Gráfico e Desenvolvimento Web. Projetos criativos e sites modernos.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6366f1;       /* índigo moderno */
+      --primary-dark: #4f46e5;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Header / Hero */
+    header {
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(135deg, #000000 0%, #6b0bcc 100%);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+      overflow: hidden;
+
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1557683316-973673baf926?w=1600') center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-content h2 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: white;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      margin: 0 12px 12px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--primary-dark);
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.4s;
+      background: rgba(15, 23, 42, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    nav.scrolled {
+      background: rgba(15, 23, 42, 0.85);
+      padding: 15px 5%;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 32px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #c4c4ff;
+    }
+
+    /* Sections */
+    section {
+      padding: 120px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h2.section-title {
+      text-align: center;
+      font-size: 3.2rem;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    h2.section-title::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Sobre */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .about-img img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Projetos */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+    }
+    .form {
+            
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+        input, textarea {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .project-img {
+      height: 240px;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    .project-info {
+      padding: 24px;
+    }
+
+    .project-info h3 {
+      margin-bottom: 12px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: #e0e7ff;
+      color: var(--primary-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Contato */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      color: var(--gray);
+      font-size: 1.8rem;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    /* WhatsApp Flutuante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+    }
+
+    .whatsapp-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      font-size: 2.2rem;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .whatsapp-float a:hover {
+      transform: scale(1.12);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav .nav-links {
+        display: none; /* pode adicionar menu hamburguer depois */
+      }
+      
+      .hero-content h1 {
+        font-size: 3.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegação -->
+  
+  <nav id="navbar">
+    <a href="#" class=""><img src="p.jpg"width ="50"></a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header id="home">
+    <div class="hero-content">
+      <br><br><br>
+      <h1>Olá, eu sou o Marcelo Gomes António 
+</h1>
+      <h2>Designer Gráfico • Desenvolvedor Web</h2>
+      
+      <div>
+        <a href="#projetos" class="btn">Ver Projetos</a>
+        <a href="#contato" class="btn btn-outline">Falar comigo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sobre -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre Mim</h2>
+    
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Sou apaixonado por criar experiências visuais impactantes e interfaces digitais funcionais.</p>
+        <p>Com experiência em <strong>design gráfico</strong> (branding, identidade visual, redes sociais, embalagens) e <strong>desenvolvimento web</strong> (sites institucionais, landing pages, e-commerces, WordPress, HTML/CSS/JS), ajudo marcas e empreendedores a se destacarem no digital.</p>
+        <p>Meu objetivo é unir estética e performance para entregar resultados que convertem.</p>
+        
+        <div style="margin-top: 2rem;">
+          <strong>Principais ferramentas:</strong><br><br>
+          • Figma • Affinity •  After Effects<br>
+          • HTML • CSS • JavaScript •  React • • 
+        </div>
+      </div>
+      
+      <div class="about-img">
+        <!-- Coloque sua foto aqui -->
+        <img src="p.jpg" alt="Foto de  Marcelo Gomes António"width="200">
+      </div>
+    </div>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos" style="background:#f8f9fa;">
+    <h2 class="section-title">Projetos Recentes</h2>
+    
+    <div class="projects-grid">
+      <!-- Repita esse bloco para cada projeto -->
+      <div class="project-card">
+        <div class="project-img"><img src="n.png" alt="fyer do site" style="max-width:100%;"> </div>
+        <div class="project-info">
+          <h3></h3>
+          <p style="color: #ddd;">Criação de logo, paleta de cores, embalagens e materiais de marketing.</p>
+          <div class="tags">
+            <span class="tag">Branding</span>
+            <span class="tag">Identidade Visual</span>
+            <span class="tag">Packaging</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-img"><img src="site b.png" alt="fyer do site" style="max-width: 100%;"></div>
+        <div class="project-info">
+          <h3></h3>
+          <p style="color: #ddd;">Desenvolvimento de site responsivo com animações sutis e SEO otimizado.</p>
+          <div class="tags">
+            <span class="tag">Web Design</span>
+            <span class="tag">HTML/CSS/JS</span>
+            <span class="tag">Figma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Adicione mais projetos aqui -->
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <h2 class="section-title">O que eu faço</h2>
+    
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:30px; text-align:center;">
+      <div>
+        <h3>Design Gráfico</h3>
+        <p>Logotipos, identidade visual, posts para redes sociais, banners, cartões, embalagens, apresentações.</p>
+      </div>
+      <div>
+        <h3>Desenvolvimento Web</h3>
+        <p>Sites institucionais, landing pages, portfólios, blogs, lojas virtuais (  código limpo).</p>
+      </div>
+      <div>
+        <h3>UI/UX Design</h3>
+        <p> design de interfaces para sites e aplicativos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" style="background:var(--dark); color:white;">
+    <h2 class="section-title" style="color:white;">Vamos conversar?</h2>
+    
+    <div class="contact-grid" style="max-width:900px; margin:auto;">
+      <div>
+        <p style="font-size:1.3rem; margin-bottom:2rem;">
+          Tem um projeto em mente? Quer um orçamento sem compromisso?<br>
+          Me chama no WhatsApp ou preencha o formulário abaixo:
+        </p>
+        
+        <p style="font-size:1.4rem; font-weight:600; margin:2rem 0 1rem;">
+          <a href="https://wa.me/+244952164306?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto..." 
+             style="color:#25D366; text-decoration:none;">
+           952164306 
+          </a>
+        </p>
+      </div>
+      
+      <div class="form">
+        <!-- Pode colocar formulário aqui depois (Formspree, Getform, etc) -->
+        <p style="opacity:0.8;">Em breve adiciono formulário de contato.</p>
+          <form action="mailto:marcelogomesantonio332@gmail.com" method="post">
+            
+            <input type="text" placeholder="Seu Nome" required>
+            <input type="email" placeholder="Seu E-mail" required>
+            <textarea placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 [ Marcelo Gomes António] — Designer Gráfico & Desenvolvedor Web</p>
+    <p style="margin-top:1rem; font-size:0.9rem;">Feito com ♥ e muito café</p>
+  </footer>
+
+  <!-- Botão WhatsApp flutuante -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/+244952164306?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar%20sobre%20meu%20projeto..." target="_blank" title="Falar no WhatsApp">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004c-1.423-.006-2.816-.39-4.03-.996l-4.385 1.15 1.17-4.272C2.906 15.47 2.25 13.8 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+    </a>  
+
+  </div>
+   
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
